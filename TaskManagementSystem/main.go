@@ -7,27 +7,58 @@ import (
 	"time"
 )
 
-func session2() {
-	var ProjectStatus string = "in progress"
+func TaskUpdate(CompletedTasks int) {
+
 	const NumberOfTotalTasks int = 100
-	CompletedTasks := 25
-	const (
-		Low = iota
-		Medium
-		High
-	)
-	var ProjectCompletionStatus bool = true
+	var ProjectStatus string
+
+	RemainingTasks := NumberOfTotalTasks - CompletedTasks
+	if CompletedTasks != NumberOfTotalTasks {
+		ProjectStatus = "in progress"
+	} else {
+		ProjectStatus = "finished"
+	}
+
+	var ProjectCompletionStatus bool
 	if ProjectStatus == "in progress" {
 		ProjectCompletionStatus = false
 	} else {
 		ProjectCompletionStatus = true
 	}
-	fmt.Println("Current project status:", strings.ToUpper(ProjectStatus))
-	fmt.Printf("Tasks completed: %d out of %d\n", CompletedTasks, NumberOfTotalTasks)
+
+	const (
+		Low = iota + 1
+		Medium
+		High
+	)
+
+	var ProjectPhase string
+	switch {
+	case CompletedTasks < 30:
+		ProjectPhase = "Starting phase"
+	case 30 <= CompletedTasks && CompletedTasks <= 60:
+		ProjectPhase = "Midway"
+	case 60 <= CompletedTasks:
+		ProjectPhase = "Final phase"
+	default:
+		fmt.Println("Wrong entered data")
+	}
+
+	fmt.Printf("Tasks remaining %d out of %d\n", RemainingTasks, NumberOfTotalTasks)
+	fmt.Printf("Current project status: %s\n", strings.ToUpper(ProjectStatus))
+	fmt.Printf("Project is in the %s.\n", strings.ToLower(ProjectPhase))
 	fmt.Printf("Task priorities: %d-Low, %d-Medium, %d-High\n", Low, Medium, High)
-	fmt.Printf("Is the project completed? %s", strconv.FormatBool(ProjectCompletionStatus))
+	if CompletedTasks > 0 {
+		fmt.Println("Task list:")
+		for t := 1; t <= RemainingTasks; t++ {
+			fmt.Printf("- Task %d\n", t)
+		}
+	}
+
+	fmt.Printf("Is the project completed? %s\n", strconv.FormatBool(ProjectCompletionStatus))
 
 }
+
 func main() {
 	// First print
 	fmt.Println("Welcome to the Task Management System!")
@@ -38,8 +69,7 @@ func main() {
 	// Third print
 	fmt.Println("Project: Task Management System")
 	fmt.Println()
-	session2()
+	TaskUpdate(95)
+	fmt.Println()
+	fmt.Println()
 }
-
-//I made changes in task
-//I made second changes in task
