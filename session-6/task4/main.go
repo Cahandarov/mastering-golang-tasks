@@ -10,12 +10,12 @@ var countries = map[string]string{
 }
 
 func main() {
+	for country := range countries {
+		findCapital(country)
+	}
 	findCapital("Russia")
 	countries["Russia"] = "Moscow"
 	countries["Albania"] = "Durres"
-	for country := range countries {
-		fmt.Printf("Capital of %s is %s\n", country, countries[country])
-	}
 }
 
 func findCapital(country string) {
