@@ -3,29 +3,26 @@ package defining
 import "fmt"
 
 type Speaker interface {
-	Speak() string
+	speak() string
 }
 type Dog struct {
-	Name string
+	name string
 }
 type Person struct {
-	Name string
+	name string
 }
 
-func (d Dog) Speak() string {
+func (d Dog) speak() string {
 	return fmt.Sprintf("Woof!")
 }
-func (p Person) Speak() string {
+func (p Person) speak() string {
 	return fmt.Sprintf("Hello!")
 }
-
 func Task2() {
 	fmt.Println("Task 2  ****************")
-	var dog Speaker
-	dog = Dog{Name: "Dogy"}
 
-	var person Speaker
-	person = Person{Name: "John"}
-	fmt.Printf("Dog says: %s\n", dog.Speak())
-	fmt.Printf("Person says: %s\n", person.Speak())
+	dog := Dog{name: "Dogy"}
+	person := Person{name: "John"}
+	fmt.Printf("Dog says: %s\n", dog.speak())
+	fmt.Printf("Person says: %s\n", person.speak())
 }

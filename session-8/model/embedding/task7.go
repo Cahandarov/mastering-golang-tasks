@@ -17,12 +17,11 @@ type AutoBot struct {
 }
 
 func (a AutoBot) Move(m string) {
-	a.message = m
-	fmt.Println(a.message)
+	fmt.Println(m)
 }
+
 func (a AutoBot) Say(m string) {
-	a.message = m
-	fmt.Println(a.message)
+	fmt.Println(m)
 }
 
 func Task7() {
