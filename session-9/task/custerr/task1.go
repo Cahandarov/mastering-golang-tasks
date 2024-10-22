@@ -8,15 +8,17 @@ type DivisionError struct {
 	Message string
 }
 
+var divisionError = DivisionError{
+	Message: "Division by zero is not allowed.",
+}
+
 func (e *DivisionError) Error() string {
 	return fmt.Sprintf("Error: %s", e.Message)
 }
 
 func divide(a, b float64) (float64, error) {
 	if b == 0 {
-		return 0, &DivisionError{
-			Message: "Division by zero is not allowed.",
-		}
+		return 0, &divisionError
 	} else {
 		return a / b, nil
 	}
