@@ -5,30 +5,30 @@ import (
 	"sync"
 )
 
-func increment(count *int, mut *sync.RWMutex, wg *sync.WaitGroup) {
-	go func() {
-		defer wg.Done()
-		mut.Lock()
-		*count++
-		fmt.Println("Writer updated counter:", *count)
-		mut.Unlock()
-	}()
-	go func() {
-		defer wg.Done()
-		mut.RLock()
-		fmt.Println("Reader accessed counter:", *count)
-		mut.RUnlock()
-	}()
+var counter int
+
+func readCounter(rwMux *sync.RWMutex, wg *sync.WaitGroup) {
+	rwMux.RLock()
+	fmt.Println("Reader accessed counter:", counter)
+	rwMux.RUnlock()
+	defer wg.Done()
+}
+func writeCounter(rwMux *sync.RWMutex, wg *sync.WaitGroup) {
+	rwMux.Lock()
+	counter++
+	rwMux.Unlock()
+	fmt.Println("Writer updated counter:", counter)
+	defer wg.Done()
 }
 func Task8() {
 	fmt.Println("Task-8   **********************")
 
-	count := 0
-	mut := sync.RWMutex{}
+	mux := sync.RWMutex{}
 	wg := sync.WaitGroup{}
-	for i := 0; i < 4; i++ {
-		wg.Add(2)
-		increment(&count, &mut, &wg)
-	}
+	wg.Add(4)
+	go readCounter(&mux, &wg)
+	go writeCounter(&mux, &wg)
+	go readCounter(&mux, &wg)
+	go writeCounter(&mux, &wg)
 	wg.Wait()
 }

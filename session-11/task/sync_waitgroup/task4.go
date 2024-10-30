@@ -27,10 +27,9 @@ func Task4() {
 	go calculateSum(numbers[4:], ch, &wg)
 	partialSum2 := <-ch
 
+	close(ch)
+	wg.Wait()
 	fmt.Println("Partial sum 1:", partialSum1)
 	fmt.Println("Partial sum 2:", partialSum2)
 	fmt.Println("Total sum:", partialSum1+partialSum2)
-
-	wg.Wait()
-	close(ch)
 }
