@@ -12,7 +12,6 @@ func job(ch chan string, wg *sync.WaitGroup) {
 	fmt.Println(data)
 	time.Sleep(1 * time.Second)
 }
-
 func Task4() {
 	fmt.Println("Task-4    *********************")
 	jobLimit := 5
@@ -30,7 +29,6 @@ func Task4() {
 
 		<-ticker.C
 	}
-
 	wg.Wait()
 	fmt.Println("(program ends)")
 }
