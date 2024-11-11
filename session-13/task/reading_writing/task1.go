@@ -34,9 +34,11 @@ func updateCsvHeader() {
 	r := bufio.NewReader(file)
 	read, err := r.ReadString('\n')
 	if err != nil {
+SES-14/testing-in-go
 		if err == io.EOF {
 			return
 		}
+ main
 		fmt.Println("Error occurred:", err)
 	}
 	if !strings.Contains(read, "name,age,grade") {
