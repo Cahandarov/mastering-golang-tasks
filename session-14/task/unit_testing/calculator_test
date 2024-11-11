@@ -1,0 +1,14 @@
+mode: set
+session-14/task/unit_testing/task1.go:11.57,12.22 1 1
+session-14/task/unit_testing/task1.go:12.22,14.3 1 1
+session-14/task/unit_testing/task1.go:14.8,14.29 1 1
+session-14/task/unit_testing/task1.go:14.29,16.3 1 1
+session-14/task/unit_testing/task1.go:16.8,16.29 1 1
+session-14/task/unit_testing/task1.go:16.29,18.3 1 1
+session-14/task/unit_testing/task1.go:18.8,18.39 1 1
+session-14/task/unit_testing/task1.go:18.39,20.3 1 1
+session-14/task/unit_testing/task1.go:20.8,20.39 1 1
+session-14/task/unit_testing/task1.go:20.39,22.3 1 1
+session-14/task/unit_testing/task1.go:22.8,24.3 1 1
+session-14/task/unit_testing/task1.go:27.14,35.2 7 0
+session-14/task/unit_testing/task2.go:5.14,7.2 1 0
