@@ -27,5 +27,4 @@ func Task6() {
 	CheckType(content2)
 	CheckType(content3)
 	CheckType(content4)
-
 }

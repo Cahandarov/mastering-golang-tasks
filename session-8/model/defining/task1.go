@@ -6,29 +6,28 @@ import (
 )
 
 type Shape interface {
-	Area() float64
+	area() float64
 }
 type Rectangle struct {
-	Width  float64
-	Height float64
+	width  float64
+	height float64
 }
 type Circle struct {
-	Radius float64
+	radius float64
 }
 
-func (r Rectangle) Area() float64 {
-	return r.Width * r.Height
+func (r Rectangle) area() float64 {
+	return r.width * r.height
 }
-func (c Circle) Area() float64 {
-	return math.Pi * c.Radius * c.Radius
+func (c Circle) area() float64 {
+	return math.Pi * c.radius * c.radius
 }
 func Task1() {
 	fmt.Println("Task 1  ****************")
 	var circle Shape
 	var rectangle Shape
-	circle = Circle{Radius: 3}
-	rectangle = Rectangle{Width: 9, Height: 6}
-	fmt.Println("Circle area:", circle.Area())
-	fmt.Println("Rectangle area:", rectangle.Area())
-
+	circle = Circle{radius: 3}
+	rectangle = Rectangle{width: 9, height: 6}
+	fmt.Println("Circle area:", circle.area())
+	fmt.Println("Rectangle area:", rectangle.area())
 }
