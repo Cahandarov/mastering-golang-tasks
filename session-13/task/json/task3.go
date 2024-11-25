@@ -68,3 +68,5 @@ func Task3() {
 	createFileAndWriteData()
 	readFile()
 }
+
+//[{"name":"Ali","age":20,"grade":47},{"name":"Sabina","age":22,"grade":61},{"name":"Medina","age":21,"grade":81},{"name":"John","age":19,"grade":45}]

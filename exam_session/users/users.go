@@ -47,6 +47,7 @@ func checkAlreadyBorrowed(userID, bookID int) error {
 	if val, ok := users[userID]; ok {
 		for _, book := range val.BorrowedBooks {
 			if book == bookID {
+
 				return ErrorAlreadyBorrowedBook
 			}
 		}

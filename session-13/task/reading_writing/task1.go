@@ -31,21 +31,18 @@ func updateCsvHeader() {
 	}
 	defer file.Close()
 
-	r := bufio.NewReader(file)
-	read, err := r.ReadString('\n')
+	read, err := os.ReadFile("task/reading_writing/data.csv")
 	if err != nil {
 		if err == io.EOF {
 			return
 		}
 		fmt.Println("Error occurred:", err)
 	}
-	if !strings.Contains(read, "name,age,grade") {
+	if strings.Contains(string(read), "name,age,grade") {
+		return
+	} else {
 		_, err = file.WriteString("name,age,grade\n")
-		if err != nil {
-			fmt.Println("Error occurred:", err)
-		}
 	}
-
 }
 
 func updateStudentsData(str string) {
@@ -84,9 +81,10 @@ func listStudents() {
 			return
 		}
 		str := strings.Split(strings.TrimSpace(read), ",")
+
 		grade, err := strconv.Atoi(str[2])
 		if err != nil {
-			fmt.Println("Error occurred while converting grade:", err)
+			return
 		}
 		if grade > 60 {
 			passingStudents = append(passingStudents, str[0])
@@ -117,3 +115,11 @@ func Task1() {
 	listStudents()
 
 }
+
+//name,age,grade
+//Alice,20,85
+//Bob,22,55
+//Carol,21,70
+//Alice,20,85
+//Bob,22,55
+//Carol,21,70
