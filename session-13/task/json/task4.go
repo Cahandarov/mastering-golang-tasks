@@ -64,3 +64,5 @@ func Task4() {
 	createFile()
 	readConfigFile()
 }
+
+//{"app_name":"MyApp","version":"1.0","debug_mode":true,"services":["service1","service2"]}

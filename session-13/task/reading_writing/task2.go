@@ -51,3 +51,7 @@ func Task2() {
 	createFile()
 	readFile()
 }
+
+//Once upon a time, there was a brave knight.
+//He fought dragons and saved villages.
+//The people loved him dearly.

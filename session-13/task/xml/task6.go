@@ -40,3 +40,5 @@ func Task6() {
 	Config := config{Database: "mydb", Username: "admin", Password: "secret", Options: Options{AutoBackup: true, MaxConnections: 100}}
 	createAndWriteXMLFile(Config)
 }
+
+//<config><database>mydb</database><username>admin</username><password>secret</password><options><auto_backup>true</auto_backup><max_connections>100</max_connections></options></config>

@@ -74,3 +74,5 @@ func Task5() {
 	createAndUpdateXML(emp2.updateEmployee("Subhan", "Developer", 45000))
 	readXMLFile()
 }
+
+//<employees><employee><name>Natig</name><position>Manager</position><salary>75000</salary></employee><employee><name>Subhan</name><position>Developer</position><salary>45000</salary></employee></employees>
