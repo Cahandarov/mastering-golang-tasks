@@ -21,7 +21,7 @@ func SetFieldValue(value interface{}, fieldName string, newValue interface{}) er
 	if val.Kind() != reflect.Ptr || val.Elem().Kind() != reflect.Struct {
 		return ErrorWrongInput
 	}
-	str := val.Elem()
+	str := val.Elem() //Elem() returns value of pointer to points
 	enteredFiled := str.FieldByName(fieldName)
 	if !enteredFiled.IsValid() {
 		return fmt.Errorf("%s field not exists", fieldName)
@@ -40,6 +40,8 @@ func Task3() {
 
 	p := &Person{Name: "Ali", Age: 30, City: "Baku"}
 	err := SetFieldValue(p, "City", "Ganja")
-	fmt.Println(err)
+	if err != nil {
+		fmt.Println(err)
+	}
 	fmt.Println(p)
 }
