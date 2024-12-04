@@ -26,7 +26,7 @@ func stringToNumber(a, b string) (float64, error) {
 func handleDivide(w http.ResponseWriter, r *http.Request) {
 	a := r.URL.Query().Get("a")
 	var b = r.URL.Query().Get("b")
-	result, errDivide := stringToNumber(a, b)
+
 	if b == "0" {
 		w.WriteHeader(http.StatusBadRequest)
 		_, err := w.Write([]byte(fmt.Sprintf("%d %s Division by zero is not allowed.", http.StatusBadRequest, http.StatusText(http.StatusBadRequest))))
@@ -34,14 +34,14 @@ func handleDivide(w http.ResponseWriter, r *http.Request) {
 			log.Default().Println(err.Error())
 		}
 	} else {
+		result, errDivide := stringToNumber(a, b)
+		if errDivide != nil {
+			fmt.Println(errDivide)
+		}
 		_, err := w.Write([]byte(fmt.Sprintf("Result: %.2f", result)))
 		if err != nil {
 			log.Default().Println(err.Error())
 		}
-	}
-
-	if errDivide != nil {
-		fmt.Println(errDivide)
 	}
 
 }
