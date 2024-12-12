@@ -16,7 +16,6 @@ func InitializeDB() {
 		}
 	}
 }
-
 func CloseDB() {
 	if DB != nil {
 		DB.Close()
@@ -44,9 +43,6 @@ func connectDB() error {
 
 func Task3() {
 	fmt.Println("Task 3  ****************")
-
 	InitializeDB()
-
 	CloseDB()
-
 }

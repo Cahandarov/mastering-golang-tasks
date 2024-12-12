@@ -21,7 +21,6 @@ func executeQuery() {
 
 	}
 }
-
 func Task4() {
 	fmt.Println("Task 4  ****************")
 	InitializeDB()
