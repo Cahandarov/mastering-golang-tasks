@@ -20,6 +20,7 @@ func handleGreet(w http.ResponseWriter, req *http.Request) {
 			log.Default().Println(errN.Error())
 		}
 	}
+
 	log.Default().Println("ActionLog.EndGreeting")
 }
 
