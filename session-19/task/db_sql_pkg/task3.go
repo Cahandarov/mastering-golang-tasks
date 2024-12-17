@@ -46,7 +46,6 @@ func Task3() {
 	fmt.Println("Task 3  ****************")
 
 	InitializeDB()
-
 	CloseDB()
 
 }
