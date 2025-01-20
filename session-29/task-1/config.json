@@ -1,0 +1,11 @@
+{
+  "appName": "Session29-Task1-App",
+  "version": 1,
+  "features": [
+    "featureA",
+    "featureB",
+    "featureC",
+    "featureC",
+    "featureD"
+  ]
+}
